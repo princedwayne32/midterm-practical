@@ -1,5 +1,6 @@
+// src/Portfolio.jsx
 import { useState } from "react";
-import "./App.css";
+import "./style.css"; // Ensure your style.css is placed in the src/ folder
 
 export default function Portfolio() {
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ export default function Portfolio() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form Submitted:", formData);
+    // Add custom submit or API logic here
   };
 
   return (
