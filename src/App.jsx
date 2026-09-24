@@ -1,59 +1,42 @@
 import { useState } from "react";
-import "./App.css";
+import "./style.css";
 
-function App() {
+export default function Portfolio() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
   });
 
-  const handleNavClick = (e, targetId) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Form submitted successfully!");
-    setFormData({ name: "", email: "" });
+    console.log("Form Submitted:", formData);
+    // Add custom submit or API logic here
   };
 
   return (
-    <>
+    <div className="portfolio-container">
       <nav>
         <ul>
           <li>
-            <a
-              href="#home"
-              className="nav-link"
-              onClick={(e) => handleNavClick(e, "home")}
-            >
+            <a href="#home" className="nav-link">
               Home
             </a>
           </li>
           <li>
-            <a
-              href="#about"
-              className="nav-link"
-              onClick={(e) => handleNavClick(e, "about")}
-            >
+            <a href="#about" className="nav-link">
               About me
             </a>
           </li>
           <li>
-            <a
-              href="#contact"
-              className="nav-link"
-              onClick={(e) => handleNavClick(e, "contact")}
-            >
+            <a href="#contact" className="nav-link">
               Contact me
             </a>
           </li>
@@ -73,7 +56,7 @@ function App() {
           design, network engineering, and software development. Driven by
           problem-solving and innovation, I focus on building efficient,
           real-world technical solutions that bridge the gap between hardware
-          systems and software applications.
+          systems and software applications[cite: 1].
         </p>
       </section>
 
@@ -117,8 +100,6 @@ function App() {
           </a>
         </div>
       </section>
-    </>
+    </div>
   );
 }
-
-export default App;
